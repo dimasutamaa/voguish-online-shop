@@ -3,7 +3,7 @@
 - [Composer](https://www.geeksforgeeks.org/how-to-install-php-composer-on-windows/).
 - [PHP](https://www.geeksforgeeks.org/how-to-install-php-in-windows-10/).
 
-**Note**: If you have composer and php installed on your device, follow the instructions below.
+If you have composer and php installed on your device, follow the instructions below.
 1. Clone the repository
 
 2. Import voguish_online_shop database to phpmyadmin
