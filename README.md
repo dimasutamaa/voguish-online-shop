@@ -19,7 +19,7 @@ composer install
 copy .env.example .env
 ```
 
-5. Update the `.env` database section with your voguish_online_shop database with this:
+5. Update the `.env` database section with your voguish_online_shop database credentials:
 
 ```bash
 DB_CONNECTION=mysql
