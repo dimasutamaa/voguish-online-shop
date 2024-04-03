@@ -6,9 +6,13 @@
 If you have composer and php installed on your device, follow the instructions below:
 1. Clone the repository
 
-2. Import voguish_online_shop database to phpmyadmin
+```bash
+git clone https://github.com/dimasutamaa/voguish-online-shop.git
+```
 
-3. Install composer to your project repository
+3. Import voguish_online_shop database to phpmyadmin
+
+4. Install composer to your project repository
 
 ```bash
 composer install
