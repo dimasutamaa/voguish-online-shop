@@ -125,7 +125,7 @@
                     <div class="sub-title">
                         <h2>Order Summary</h3>
                     </div>
-                    <div class="card cart-summary">
+                    <div class="card cart-summery">
                         <div class="card-body">
                             @foreach(Cart::content() as $item)
                             <div class="d-flex justify-content-between pb-2">
@@ -134,19 +134,37 @@
                             </div>
                             @endforeach
 
-                            <div class="d-flex justify-content-between summary-end">
+                            <div class="d-flex justify-content-between summery-end">
                                 <div class="h6"><strong>Subtotal</strong></div>
                                 <div class="h6"><strong>Rp{{ Cart::subtotal() }}</strong></div>
+                            </div>
+                            <div class="d-flex justify-content-between summery-end">
+                                <div class="h6"><strong>Discount</strong></div>
+                                <div class="h6"><strong id="discount_value">Rp{{ $discount }}</strong></div>
                             </div>
                             <div class="d-flex justify-content-between mt-2">
                                 <div class="h6"><strong>Shipping</strong></div>
                                 <div class="h6"><strong id="shippingAmount">Rp{{ number_format($totalShippingCharge,2) }}</strong></div>
                             </div>
-                            <div class="d-flex justify-content-between mt-2 summary-end">
+                            <div class="d-flex justify-content-between mt-2 summery-end">
                                 <div class="h5"><strong>Total</strong></div>
                                 <div class="h5"><strong id="grandTotal">Rp{{ number_format($grandTotal,2) }}</strong></div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="input-group apply-coupan mt-4">
+                        <input type="text" placeholder="Coupon Code" class="form-control" name="discount_code" id="discount_code">
+                        <button class="btn btn-dark" type="button" id="apply-discount">Apply Coupon</button>
+                    </div> 
+
+                    <div id="discount-response-wrapper">
+                        @if (Session::has('code'))
+                        <div class="mt-4" id="discount-response">
+                            <strong>{{ Session::get('code')->code }}</strong>
+                            <a class="btn btn-sm btn-danger" id="remove-discount"><i class="fa fa-times"></i></a>
+                        </div>
+                        @endif
                     </div>
 
                     <div class="card payment-form ">
@@ -340,7 +358,7 @@
 
     $("#country").change(function(){
         $.ajax({
-            url: '{{ route("front.getOrderSummary") }}',
+            url: '{{ route("front.getOrderSummery") }}',
             type: 'post',
             data: {country_id: $(this).val()},
             dataType: 'json',
@@ -352,5 +370,46 @@
             }
         });
     });
+
+    $("#apply-discount").click(function(){
+        $.ajax({
+            url: '{{ route("front.applyDiscount") }}',
+            type: 'post',
+            data: {code: $("#discount_code").val(), country_id: $("#country").val()},
+            dataType: 'json',
+            success: function(response){
+                if(response.status == true){
+                    $("#shippingAmount").html('Rp'+response.shippingCharge);
+                    $("#grandTotal").html('Rp'+response.grandTotal);
+                    $("#discount_value").html('Rp'+response.discount);
+                    $("#discount-response-wrapper").html(response.discountString);
+                }else{
+                    $("#discount-response-wrapper").html("<span class='text-danger'>"+response.message+"</span>");
+                }
+            }
+        });
+    });
+
+    $('body').on('click',"#remove-discount",function(){
+        $.ajax({
+            url: '{{ route("front.removeCoupon") }}',
+            type: 'post',
+            data: {country_id: $("#country").val()},
+            dataType: 'json',
+            success: function(response){
+                if(response.status == true){
+                    $("#shippingAmount").html('Rp'+response.shippingCharge);
+                    $("#grandTotal").html('Rp'+response.grandTotal);
+                    $("#discount_value").html('Rp'+response.discount);
+                    $("#discount-response").html('');
+                    $("#discount_code").val('');
+                }
+            }
+        });
+    });
+
+    // $("#remove-discount").click(function(){
+        
+    // });
 </script>
 @endsection
