@@ -123,9 +123,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="sub-title">
-                        <h2>Order Summery</h3>
+                        <h2>Order Summary</h3>
                     </div>
-                    <div class="card cart-summery">
+                    <div class="card cart-summary">
                         <div class="card-body">
                             @foreach(Cart::content() as $item)
                             <div class="d-flex justify-content-between pb-2">
@@ -134,7 +134,7 @@
                             </div>
                             @endforeach
 
-                            <div class="d-flex justify-content-between summery-end">
+                            <div class="d-flex justify-content-between summary-end">
                                 <div class="h6"><strong>Subtotal</strong></div>
                                 <div class="h6"><strong>Rp{{ Cart::subtotal() }}</strong></div>
                             </div>
@@ -142,7 +142,7 @@
                                 <div class="h6"><strong>Shipping</strong></div>
                                 <div class="h6"><strong id="shippingAmount">Rp{{ number_format($totalShippingCharge,2) }}</strong></div>
                             </div>
-                            <div class="d-flex justify-content-between mt-2 summery-end">
+                            <div class="d-flex justify-content-between mt-2 summary-end">
                                 <div class="h5"><strong>Total</strong></div>
                                 <div class="h5"><strong id="grandTotal">Rp{{ number_format($grandTotal,2) }}</strong></div>
                             </div>
@@ -340,7 +340,7 @@
 
     $("#country").change(function(){
         $.ajax({
-            url: '{{ route("front.getOrderSummery") }}',
+            url: '{{ route("front.getOrderSummary") }}',
             type: 'post',
             data: {country_id: $(this).val()},
             dataType: 'json',
