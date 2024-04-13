@@ -308,6 +308,9 @@ class CartController extends Controller
                 $orderItem->save();
             }
 
+            // Send Order Email
+            orderEmail($order->id, 'customer');
+
             session()->flash('success', 'You have successfully placed your order');
 
             Cart::destroy();

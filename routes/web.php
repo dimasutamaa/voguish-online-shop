@@ -35,6 +35,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Route::get('/test', function () {
+//     orderEmail(12);
+// });
+
 Route::get('/',[FrontController::class,'index'])->name('front.home');
 Route::get('/shop/{categorySlug?}/{subCategorySlug?}',[ShopController::class,'index'])->name('front.shop');
 Route::get('/product/{slug}',[ShopController::class,'product'])->name('front.product');
@@ -136,6 +140,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
         Route::get('/orders/{id}',[OrderController::class,'detail'])->name('orders.detail');
         Route::post('/orders/change-status/{id}',[OrderController::class,'changeOrderStatus'])->name('orders.changeOrderStatus');
+        Route::post('/orders/send-email/{id}',[OrderController::class,'sendInvoiceEmail'])->name('orders.sendInvoiceEmail');
 
         Route::post('/upload-temp-Image',[TempImagesController::class,'create'])->name('temp-images.create');
 
