@@ -50,6 +50,16 @@ class ShopController extends Controller
             }
         }
 
+        // Search product
+        if(!empty($request->get('search'))){
+            $searchTerm = $request->search;
+            $products = $products->where(function($query) use ($searchTerm){
+                        $query->where('title','like','%'.$searchTerm.'%')->orWhereHas('brand',function($query) use ($searchTerm){
+                        $query->where('name','like','%'.$searchTerm.'%');
+                    });
+            });
+        }
+
         if($request->get('sort') != ''){
             if($request->get('sort') == 'latest'){
                 $products = $products->orderBy('id','DESC');
