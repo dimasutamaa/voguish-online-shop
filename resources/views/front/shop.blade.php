@@ -80,22 +80,6 @@
                 <div class="card">
                     <div class="card-body">
                         <input type="text" class="js-range-slider" name="my_range" value="" />
-                        <!-- <div class="form-check mb-2">
-                            <input class="form-check-input price-filter" type="checkbox" value="0-100" id="price-filter-1" data-group="group1">
-                            <label class="form-check-label" for="price-filter-1">Rp0-Rp100000</label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input price-filter" type="checkbox" value="100-200" id="price-filter-2" data-group="group2">
-                            <label class="form-check-label" for="price-filter-2">Rp100000-Rp200000</label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input price-filter" type="checkbox" value="200-500" id="price-filter-3" data-group="group3">
-                            <label class="form-check-label" for="price-filter-3">Rp200000-Rp500000</label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input price-filter" type="checkbox" value="500" id="price-filter-4" data-group="group4">
-                            <label class="form-check-label" for="price-filter-4">Rp500000+</label>
-                        </div> -->
                     </div>
                 </div>
 
@@ -130,7 +114,7 @@
                                     @endif
                                 </a>
 
-                                <a class="whishlist" href="222"><i class="far fa-heart"></i></a>
+                                <a onclick="addToWishlist({{ $product->id }})" class="whishlist" href="javascript:void(0);"><i class="far fa-heart"></i></a>
 
                                 <div class="product-action">
                                     <a class="btn btn-dark" href="javascript:void(0);" onclick="addToCart({{ $product->id }});">
