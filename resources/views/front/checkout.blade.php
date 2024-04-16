@@ -197,14 +197,9 @@
                             </div>
                         </div>
                         <div class="pt-4">
-                            {{-- <a href="#" class="btn-dark btn btn-block w-100">Pay Now</a> --}}
                             <button type="submit" class="btn-dark btn btn-block w-100">Pay Now</button>
                         </div>
                     </div>
-
-
-                    <!-- CREDIT CARD FORM ENDS HERE -->
-
                 </div>
             </div>
         </form>
@@ -407,9 +402,5 @@
             }
         });
     });
-
-    // $("#remove-discount").click(function(){
-        
-    // });
 </script>
 @endsection

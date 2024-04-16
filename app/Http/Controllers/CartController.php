@@ -172,7 +172,7 @@ class CartController extends Controller
         // Calculate shipping
         if($customerAddress != ''){
             $userCountry = $customerAddress->country_id;
-            $shippingInfo = ShippingCharge::where('country_id',$userCountry)->first();
+            $shippingInfo = ShippingCharge::where('country_id',$userCountry)->orWhere('country_id','rest_of_world')->first();
     
             $totalQty = 0;
             $totalShippingCharge = 0;

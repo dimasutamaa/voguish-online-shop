@@ -5,7 +5,6 @@
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <!-- <img src="images/carousel-1.jpg" class="d-block w-100" alt=""> -->
 
                 <picture>
                     <source media="(max-width: 799px)" srcset="{{ asset('front-assets/images/carousel-1-m.png') }}" />
@@ -37,7 +36,6 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <!-- <img src="images/carousel-3.jpg" class="d-block w-100" alt=""> -->
                 <picture>
                     <source media="(max-width: 799px)" srcset="{{ asset('front-assets/images/carousel-3-m.png') }}" />
                     <source media="(min-width: 800px)" srcset="{{ asset('front-assets/images/carousel-3.png') }}" />
@@ -107,12 +105,10 @@
                         @if($category->image != "")
                         <img src="{{ asset('uploads/category/thumb/'.$category->image) }}" alt="" class="img-fluid">
                         @endif
-                        <!-- <img src="{{ asset('front-assets/images/cat-1.jpg') }}" alt="" class="img-fluid"> -->
                     </div>
                     <div class="right">
                         <div class="cat-data">
                             <h2>{{ $category->name }}</h2>
-                            <!-- <p>100 Products</p> -->
                         </div>
                     </div>
                 </div>
