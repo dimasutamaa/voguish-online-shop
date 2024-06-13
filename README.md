@@ -1,6 +1,7 @@
 ## Run the application
-**Note**: Make sure you install composer and PHP on your device. If you haven't, follow the instructions below:
+**Note**: Make sure you install Composer, PHP, and XAMPP on your device. If you haven't, follow the instructions below:
 - [Composer](https://www.geeksforgeeks.org/how-to-install-php-composer-on-windows/).
+- [XAMPP](https://www.apachefriends.org/download.html).
 - [PHP](https://www.geeksforgeeks.org/how-to-install-php-in-windows-10/).
 
 If you have composer and php installed on your device, follow the instructions below:
@@ -10,7 +11,7 @@ If you have composer and php installed on your device, follow the instructions b
 git clone https://github.com/dimasutamaa/voguish-online-shop.git
 ```
 
-3. Import voguish_online_shop database to phpmyadmin
+3. Download and import voguish_online_shop.sql database to phpmyadmin
 
 4. Install composer to your project repository
 
@@ -21,7 +22,7 @@ composer install
 4. Copy the `.env` file:
 
 ```bash
-copy .env.example .env
+cp .env.example .env
 ```
 
 5. Update the `.env` database section with your voguish_online_shop database credentials:
@@ -54,3 +55,21 @@ php artisan serve
 ```
 
 9. Go to [http://localhost:8000](http://localhost:8000)
+
+## Accounts
+**[Customer]**:
+- john@example.com
+- mark@example.com
+```bash
+password: 12345
+```
+
+**[Admin]**:
+- admin@voguish.com
+```bash
+password: admin
+```
+Go to [http://localhost:8000/admin/login](http://localhost:8000/admin/login) to access the admin panel.
+
+## Mailing features
+To be able to perform the mailing features, you need to manually configure the mailing settings.
