@@ -302,6 +302,7 @@ class AuthController extends Controller
             'mailSubject' => 'You have requested to reset your password'
         ];
 
+        // Setup your own SMTP to use this feature
         Mail::to($request->email)->send(new ResetPasswordEmail($formData));
 
         return redirect()->route('front.forgotPassword')->with('success','Please check your email to reset your password');

@@ -176,8 +176,13 @@
                         </div>
 
                         <div class="">
-                            <input type="radio" name="payment_method" value="cod" id="payment_method_two">
-                            <label for="payment_method_two" class="form-check-label">Stripe</label>
+                            <input type="radio" name="payment_method" value="debit" id="payment_method_two">
+                            <label for="payment_method_two" class="form-check-label">Debit</label>
+                        </div>
+
+                        <div class="">
+                            <input type="radio" name="payment_method" value="credit" id="payment_method_three">
+                            <label for="payment_method_two" class="form-check-label">Credit Card</label>
                         </div>
 
                         <div class="card-body p-0 d-none mt-3" id="card-payment-form">

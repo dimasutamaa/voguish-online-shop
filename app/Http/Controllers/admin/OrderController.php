@@ -56,6 +56,7 @@ class OrderController extends Controller
         ]);
     }
 
+    // Setup your own SMTP and admin email address to use this feature
     public function sendInvoiceEmail(Request $request, $id){
         orderEmail($id, $request->userType);
 

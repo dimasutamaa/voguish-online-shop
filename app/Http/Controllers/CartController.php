@@ -319,7 +319,8 @@ class CartController extends Controller
             }
 
             // Send Order Email
-            orderEmail($order->id, 'customer');
+            // Setup your own SMTP to use this feature
+            // orderEmail($order->id, 'customer');
 
             session()->flash('success', 'You have successfully placed your order');
 
