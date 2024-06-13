@@ -1,10 +1,10 @@
 ## Run the application
-**Note**: Make sure you install Composer, PHP, and XAMPP on your device. If you haven't, follow the instructions below:
+**Note**: Make sure you have installed Composer, PHP, and XAMPP on your device. If you haven't, follow the instructions below:
 - [Composer](https://www.geeksforgeeks.org/how-to-install-php-composer-on-windows/).
 - [XAMPP](https://www.apachefriends.org/download.html).
 - [PHP](https://www.geeksforgeeks.org/how-to-install-php-in-windows-10/).
 
-If you have composer and php installed on your device, follow the instructions below:
+If you have Composer, PHP, and XAMPP installed on your device, follow the instructions below:
 1. Clone the repository
 
 ```bash
@@ -56,20 +56,27 @@ php artisan serve
 
 9. Go to [http://localhost:8000](http://localhost:8000)
 
+
 ## Accounts
-**[Customer]**:
+**Customer**:
 - john@example.com
 - mark@example.com
 ```bash
 password: 12345
 ```
 
-**[Admin]**:
+**Admin**:
 - admin@voguish.com
 ```bash
 password: admin
 ```
 Go to [http://localhost:8000/admin/login](http://localhost:8000/admin/login) to access the admin panel.
 
+
 ## Mailing features
-To be able to perform the mailing features, you need to manually configure the mailing settings.
+- Contact Us
+- Sending the order invoice to the customer's email after clicking 'Pay Now'
+- Manually sending the order invoice to the admin's email in 'Order Detail' on the admin panel
+- Sending a changing password link from the forgot password feature to the customer's email
+  
+**Note**: To be able to perform the mailing features, you need to manually configure the mailing settings.
